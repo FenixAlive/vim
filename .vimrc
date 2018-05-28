@@ -1,7 +1,7 @@
 set nocompatible              " be iMproved, required
 set mouse=a
-" colorscheme molokai
-color summerfruit256
+colorscheme molokai
+"color summerfruit256
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 " set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
