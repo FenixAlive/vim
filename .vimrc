@@ -1,7 +1,11 @@
 set nocompatible              " be iMproved, required
-set mouse=a
-colorscheme molokai
-"color summerfruit256
+
+"Colorscheme
+"summerfruit256, molokai
+
+"colorscheme molokai
+
+"Vundle
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 " set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
@@ -23,9 +27,27 @@ Plugin 'jsenin/molokai'
 Plugin 'kshenoy/vim-signature'
 Plugin 'jsenin/semantic-highlight.vim'
 Plugin 'easymotion/vim-easymotion'
+Plugin 'chrisbra/csv.vim'
+Plugin 'chriskempson/base16-vim'
 
 call vundle#end()
 
+
+"airline
+"themes: https://github.com/vim-airline/vim-airline/wiki/Screenshots
+"some: papercolor, base16, sol, molokai, solarized light, powerlineish theme,
+"light, simple
+
+set laststatus=2
+let g:airline#extensions#tabline#enabled = 1
+set t_Co=256
+let g:airline_powerline_fonts = 1
+let g:airline_theme= 'simple'
+let g:user_emmet_leader_key='<C-Z>'
+
+"sets
+
+set mouse=a
 set number
 set linebreak
 set mousehide
@@ -62,13 +84,6 @@ noremap <F2> :NERDTreeToggle<CR>
 noremap <c-X> :NERDTreeToggle<CR>
 
 let g:ctrlp_map = '<c-p>'
-
-set laststatus=2
-let g:airline#extensions#tabline#enabled = 1
-set t_Co=256
-let g:airline_powerline_fonts = 1
-let g:airline_theme='light'
-let g:user_emmet_leader_key='<C-Z>'
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
