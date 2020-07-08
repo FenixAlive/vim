@@ -12,6 +12,7 @@
 - <c-w>v -divide horizontal
 - <s-h> <s-l> se va al principio y final de lo visible
 - <s-j> <s-k> elimina filas y las junta
+- bd cierra buffer actual
 
   --Plugins
 - emmet: <c-a>, "la coma tambien va"
@@ -26,28 +27,28 @@
 - <leader><leader>w -pone indices a las palabras y te vas a la que selecciones
 
   --Moverse
-j -bajar un número de línea, es decir, líneas separadas por un retorno de carro.
-gj -bajar una línea visible, comportamiento habitual de los editores normales.
-k -sube un número de línea.
-gk -sube una línea como lo haría un editor corriente.
-0 -va al principio de la línea real.
-{ -va al principio del párrafo.
-} -va al final del párrafo.
-gg -va al principio del archivo.
-G va al final del archivo.
-g0 va al principio de la línea visible en pantalla.
-^ va al primer carácter no en blanco de la línea real.
-g^ va al primer carácter no en blanco de la línea visible en pantalla.
-$ va al final de la línea real.
-g$ va al final de la línea visible en pantalla.
-w va hacia el principio de la siguiente palabra.
-b va hacia atrás, al principio de la palabra actual o de la anterior.
-e va al final de la palabra actual y si estamos allí, de la siguiente palabra.
-ge va al final de la palabra anterior.
-/búsqueda muy útil para dirigirnos hacia palabras concretas en el texto. Además se puede combinar por ejemplo con d para borrar desde nos encontramos hasta donde está nuestra búsqueda d/palabra.
+j   -bajar un número de línea, es decir, líneas separadas por un retorno de carro.
+gj  -bajar una línea visible, comportamiento habitual de los editores normales.
+k   -sube un número de línea.
+gk  -sube una línea como lo haría un editor corriente.
+0   -va al principio de la línea real.
+{   -va al principio del párrafo.
+}   -va al final del párrafo.
+gg  -va al principio del archivo.
+G   -va al final del archivo.
+g0  -va al principio de la línea visible en pantalla.
+^   -va al primer carácter no en blanco de la línea real.
+g^  -va al primer carácter no en blanco de la línea visible en pantalla.
+$   -va al final de la línea real.
+g$  -va al final de la línea visible en pantalla.
+w   -va hacia el principio de la siguiente palabra.
+b   -va hacia atrás, al principio de la palabra actual o de la anterior.
+e   -va al final de la palabra actual y si estamos allí, de la siguiente palabra.
+ge  -va al final de la palabra anterior.
+/   -muy útil para dirigirnos hacia palabras concretas en el texto. Además se puede combinar por ejemplo con d para borrar desde nos encontramos hasta donde está nuestra búsqueda d/palabra.
 f{carácter} va hacia delante hasta que encuentre el carácter.
 F{carácter} lo mismo que el anterior pero en dirección contraria.
 t{carácter} va hacia adelante y se para en una columna antes del carácter.
 T{carácter} lo mismo que el anterior pero en dirección contraria.
-; repite la última búsqueda de carácter.
-, da la vuelta a la última búsqueda.
+;   -repite la última búsqueda de carácter.
+,   -da la vuelta a la última búsqueda.

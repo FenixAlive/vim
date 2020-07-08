@@ -51,7 +51,6 @@ syntax on
 
 let mapleader =","
 
-
 set mouse=a
 set number
 "corta una linea larga por palabras si se puede"
