@@ -1,19 +1,21 @@
 set nocompatible              " be iMproved, required
 
 "Colorscheme
-"summerfruit256, molokai
+"summerfruit256, molokai, snow, artesanal
 
-"colorscheme molokai
+colorscheme artesanal
 
 "Vundle
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
-" set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
 
 call vundle#begin()
+"hace este codigo posible para agregar plugins
 Plugin 'VundleVim/Vundle.vim'
+"hace mas facil buscar un archivo y abrirlo <c-p>
 Plugin 'kien/ctrlp.vim'
 Plugin 'klen/python-mode'
+"abre arbol con <c-x> o f2
 Plugin 'scrooloose/nerdtree'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'alvan/vim-closetag'
@@ -21,17 +23,74 @@ Plugin 'jelera/vim-javascript-syntax'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'edkolev/tmuxline.vim'
+"<c-z>,
 Plugin 'mattn/emmet-vim'
+"revisa codigo al guardar
 Plugin 'vim-syntastic/syntastic'
+"agrega color molokai
 Plugin 'jsenin/molokai'
+"
 Plugin 'kshenoy/vim-signature'
-Plugin 'jsenin/semantic-highlight.vim'
+"semantic colorea cada palabra de distinto color con <leader>s
+Plugin 'jsenin/semantic-highlight.vim' 
+"al buscar algo con / o <leader><leader> le pone letras a las palabras encontradas para ir a ellas
 Plugin 'easymotion/vim-easymotion'
 Plugin 'chrisbra/csv.vim'
-Plugin 'chriskempson/base16-vim'
-
+Plugin 'chrisbra/unicode.vim'
+"agrega, cambia y elimina surrounds characters cs<leader> ys<leader> ds<leader> en visual mode S
+Plugin 'tpope/vim-surround'
+"autocompleta sin apretar <c-p> en insert mode
+Plugin 'AutoComplPop'
 call vundle#end()
 
+
+"sets
+
+filetype plugin on    " required
+syntax on
+
+let mapleader =","
+
+set mouse=a
+set number
+"corta una linea larga por palabras si se puede"
+set linebreak 
+"oculta el mouse al escribir en gvim"
+set mousehide 
+set autoindent
+set expandtab
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set ignorecase "Hace insensible la busqueda"
+"resalta las busquedas hechas con / y doble <esc> las quita
+set hlsearch 
+nnoremap <esc><esc> :silent! nohls<cr>
+"va llendose a la busqueda conforme tecleas no trabaja con easymotion
+set incsearch 
+"colorea la linea en lugar de underline
+set cursorline
+"abre ventana de completado estaba en preview <c-p> en insert mode
+set completeopt=menuone,preview,longest
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <RIGHT> pumvisible() ? "<C-y>" : "<RIGHT>"
+inoremap <expr> <l> pumvisible() ? "<C-y>" : "<l>"
+inoremap <expr> <LEFT> pumvisible() ? "<C-e>" : "<LEFT>"
+inoremap <expr> <h> pumvisible() ? "<C-e>" : "<h>"
+inoremap <expr> <UP> pumvisible() ? "<C-p>": "<UP>"
+inoremap <expr> <k> pumvisible() ? "<C-p>": "<k>"
+inoremap <expr> <DOWN> pumvisible() ? "<C-n>": "<DOWN>"
+inoremap <expr> <j> pumvisible() ? "<C-n>": "<j>"
+
+scriptencoding utf-8
+autocmd FileType python set breakindentopt=shift:4
+
+set pastetoggle=<F12>
+let g:pymode_folding =0
+let g:pymode_trim_whitespaces =1
+let g:pymode_python ='python3'
+let g:pymode_doc=0
+let g:pymode_virtualenv =1
 
 "airline
 "themes: https://github.com/vim-airline/vim-airline/wiki/Screenshots
@@ -42,38 +101,11 @@ set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 set t_Co=256
 let g:airline_powerline_fonts = 1
-let g:airline_theme= 'simple'
-let g:user_emmet_leader_key='<C-Z>'
+let g:airline_theme= 'light'
 
-"sets
+"para usar emmet <c-a>,
+let g:user_emmet_leader_key='<c-a>'
 
-set mouse=a
-set number
-set linebreak
-set mousehide
-set autoindent
-scriptencoding utf-8
-filetype plugin on    " required
-syntax on
-autocmd FileType python set breakindentopt=shift:4
-set expandtab
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
-set ignorecase
-set hlsearch
-set incsearch
-set cursorline
-set completeopt-=preview
-let mapleader =','
-set pastetoggle=<F12>
-let g:pymode_folding =0
-let g:pymode_trim_whitespaces =1
-let g:pymode_python ='python3'
-let g:pymode_doc=0
-let g:pymode_virtualenv =0
-
-noremap <f3> :Autoformat<CR>
 
 let g:formatters_php =['phpcsfixer']
 let g:formatdef_phpcsfixer ="'~/bin/php-cs-fixer fix -q -'"
@@ -92,7 +124,7 @@ set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+let g:syntastic_check_on_wq = 1
 let g:syntastic_php_checkers=['php','phpcs']
 let g:syntastic_php_phpcs_args='--standard=PSR2 -n'
 let g:syntastic_python_checkers=['flake8']
@@ -113,10 +145,16 @@ let g:AutoPairsShortcutFastWrap= 'ł'
 "" https://robots.thoughtbot.com/vim-splits-move-faster-and-more-naturally
 "" control w + x -> swap bufffers order
 "" control w + r -> rotate buffer"
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+
+" move among buffers with CTRL-shift
+noremap <CS-H> :bprev<CR>
+noremap <CS-K> :bfirst<CR>
+noremap <CS-J> :blast<CR>
+noremap <CS-L> :bnext<CR>
 
 "" swap words, usseful for swapping params in a function call
 "" http://vim.wikia.com/wiki/Swapping_characters,_words_and_line
@@ -132,18 +170,13 @@ set tags=./tags,./../tags,./../../tags,./../../../tags,tags
 
 
 "" semantic color
-"" cambia con leader s ( ,s )
+"" cambia con leader s ( <leader>s )
 "" https://github.com/jaxbot/semantic-highlight.vim
 let g:semanticEnableFileTypes = ['python']
 nnoremap <Leader>s :SemanticHighlightToggle<cr>
 
-
 " closetag autocierra tags para los ficheros con extensioens
 let g:closetag_filenames = "*.html,*.js"
-
-
-
-
 
 " delete back word with control + d
 nmap <c-b> db

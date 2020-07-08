@@ -1,0 +1,27 @@
+- <leader> = ","
+- <c->control
+- <s->shift
+- :10 va a la linea 10
+- <c-r>rehaces una acción eliminada con u
+- :b nombreArchivo -se mueve al buffer del archivo
+- :ls ver numero de buffers
+- :b# -se mueve al buffer #
+- :sb# -hace un split del buffer elegido con #
+- <cs-h><cs-k><cs-j><cs-l> anterior, primero, ultimo, siguiente, se mueve entre buffer 
+- <c-h> <c-l> <c-j> <c-k> -se mueve entre splits en direccion dada
+- <c-w>S -divide la pantalla vertical
+- <c-w>v -divide horizontal
+- <s-h> <s-l> se va al principio y final de lo visible
+- <s-j> <s-k> elimina filas y las junta
+
+  --Plugins
+- emmet: <c-a>, "la coma tambien va"
+- nerdtree: f2 o <c-x> en normal mode
+- surround texto: 
+  ysiw" -pone "" alrededor de la palabra
+  yss<div> -pone un div alrededor de toda la linea
+  dst -elimina un tag alrededor 
+  cst" -cambia el tag por las dobles comillas
+  en visual mode S<div class="hola"> agrega el div a lo subrrallado
+- buscar con / palabraabuscar te da tags de a cual quieres ir en ese momento, despues te mueves con n y N entre subrrallados, con doble <esc> desubrrayas lo buscado 
+- <leader><leader>w -pone indices a las palabras y te vas a la que selecciones
