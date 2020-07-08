@@ -1,1 +1,2 @@
-./vim_windows/vimfiles/bundle/*
+*/bundle/*
+*/plugged/*
