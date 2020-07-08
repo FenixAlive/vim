@@ -7,8 +7,7 @@
 - :ls ver numero de buffers
 - :b# -se mueve al buffer #
 - :sb# -hace un split del buffer elegido con #
-- <cs-h><cs-k><cs-j><cs-l> anterior, primero, ultimo, siguiente, se mueve entre buffer 
-- <c-h> <c-l> <c-j> <c-k> -se mueve entre splits en direccion dada
+- <c-h> <c-l> <c-j> <c-k> -se mueve entre buffers
 - <c-w>S -divide la pantalla vertical
 - <c-w>v -divide horizontal
 - <s-h> <s-l> se va al principio y final de lo visible
