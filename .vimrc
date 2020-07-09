@@ -47,7 +47,6 @@ Plugin 'dense-analysis/ale'
 "cliente de lenguaje clientlanguaje-neovim lo instale manualmente
 call vundle#end()
 
-
 "sets
 
 filetype plugin on    " required
@@ -62,6 +61,7 @@ augroup numbertoggle
   autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
+
 "corta una linea larga por palabras si se puede"
 set linebreak 
 "oculta el mouse al escribir en gvim"
@@ -71,10 +71,11 @@ set expandtab
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
+
 set ignorecase "Hace insensible la busqueda"
 "resalta las busquedas hechas con / y doble <esc> las quita
 set hlsearch 
-nnoremap <esc> :silent! nohls<cr>
+nnoremap <ESC><ESC> :silent! nohls<cr>
 inoremap jk <esc>
 "va llendose a la busqueda conforme tecleas no trabaja con easymotion
 set incsearch 
@@ -83,6 +84,7 @@ set cursorline
 "abre ventana de completado estaba en preview <c-p> en insert mode
 "completar con ale
 let g:ale_completion_enabled = 1
+
 " Set this. Airline will handle the rest.
 let g:airline#extensions#ale#enabled = 1
 "configura servidor-cliente rls
@@ -176,16 +178,18 @@ let g:AutoPairsShortcutFastWrap= 'ł'
 "" https://robots.thoughtbot.com/vim-splits-move-faster-and-more-naturally
 "" control w + x -> swap bufffers order
 "" control w + r -> rotate buffer"
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
+"nnoremap <C-L> <C-W><C-L>
+"nnoremap <C-H> <C-W><C-H>
+"nnoremap <C-J> <C-W><C-J>
+"nnoremap <C-K> <C-W><C-K>
 
 " move among buffers with CTRL-shift
-noremap <CS-H> :bprev<CR>
-noremap <CS-K> :bfirst<CR>
-noremap <CS-J> :blast<CR>
-noremap <CS-L> :bnext<CR>
+noremap <C-H> :bprev<CR>
+noremap <C-K> :bfirst<CR>
+noremap <C-J> :blast<CR>
+noremap <C-L> :bnext<CR>
+nnoremap <leader>bb :buffers<cr>:b<space>
+nnoremap <leader><tab> :b#<cr>
 
 "" swap words, usseful for swapping params in a function call
 "" http://vim.wikia.com/wiki/Swapping_characters,_words_and_line
