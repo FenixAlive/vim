@@ -74,7 +74,7 @@ set shiftwidth=2
 set ignorecase "Hace insensible la busqueda"
 "resalta las busquedas hechas con / y doble <esc> las quita
 set hlsearch 
-nnoremap jk :silent! nohls<cr>
+nnoremap <esc> :silent! nohls<cr>
 inoremap jk <esc>
 "va llendose a la busqueda conforme tecleas no trabaja con easymotion
 set incsearch 

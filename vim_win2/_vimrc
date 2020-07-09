@@ -41,7 +41,7 @@ set ignorecase "Hace insensible la busqueda"
 set hlsearch 
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
-nnoremap jk :silent! nohls<cr>
+nnoremap <esc> :silent! nohls<cr>
 "va llendose a la busqueda conforme tecleas no trabaja con easymotion
 set incsearch 
 
@@ -111,6 +111,12 @@ set tabstop=2
 set shiftwidth=2
 " always uses spaces instead of tab characters
 set expandtab
+
+" move among buffers with CTRL
+noremap <C-H> :bprev<CR>
+noremap <C-K> :bfirst<CR>
+noremap <C-J> :blast<CR>
+noremap <C-L> :bnext<CR>
 
 " coc config
 " prettier command for coc
