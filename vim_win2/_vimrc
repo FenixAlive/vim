@@ -33,7 +33,7 @@ call plug#end()
 
 "custom
 let mapleader =","
-inoremap <leader>m <ESC>
+inoremap jk <ESC>
 set mouse=a
 set mousehide 
 set ignorecase "Hace insensible la busqueda"
@@ -41,7 +41,7 @@ set ignorecase "Hace insensible la busqueda"
 set hlsearch 
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
-nnoremap <esc><esc> :silent! nohls<cr>
+nnoremap jk :silent! nohls<cr>
 "va llendose a la busqueda conforme tecleas no trabaja con easymotion
 set incsearch 
 
