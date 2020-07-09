@@ -4,7 +4,7 @@ scriptencoding utf-8
 "Colorscheme
 "summerfruit256, molokai, snow, artesanal
 "colorscheme gruvbox
-colorscheme base16-google-dark
+colorscheme molokai
 
 " Specify a directory for plugins
 call plug#begin('~/vimfiles/plugged')
@@ -57,13 +57,19 @@ set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 set t_Co=256
 let g:airline_powerline_fonts = 1
-let g:airline_theme= 'base16'
+let g:airline_theme= 'simple'
 
 "emmet-vim
 let g:user_emmet_leader_key='<C-a>'
 
-"semantic colorea cada palabra de distinto color con <leader>s
-Plug 'jsenin/semantic-highlight.vim' 
+" move among buffers with CTRL
+noremap <C-H> :bprev<CR>
+noremap <C-K> :bfirst<CR>
+noremap <C-J> :blast<CR>
+noremap <C-L> :bnext<CR>
+nnoremap <leader>bb :buffers<cr>:b<space>
+nnoremap <leader><tab> :b#<cr>
+
 
 "nerd
 nmap <C-x> :NERDTreeToggle<CR>
@@ -111,12 +117,6 @@ set tabstop=2
 set shiftwidth=2
 " always uses spaces instead of tab characters
 set expandtab
-
-" move among buffers with CTRL
-noremap <C-H> :bprev<CR>
-noremap <C-K> :bfirst<CR>
-noremap <C-J> :blast<CR>
-noremap <C-L> :bnext<CR>
 
 " coc config
 " prettier command for coc

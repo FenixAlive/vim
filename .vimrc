@@ -75,7 +75,7 @@ set shiftwidth=2
 set ignorecase "Hace insensible la busqueda"
 "resalta las busquedas hechas con / y doble <esc> las quita
 set hlsearch 
-nnoremap <ESC><ESC> :silent! nohls<cr>
+nnoremap <ESC> :silent! nohls<cr>
 inoremap jk <esc>
 "va llendose a la busqueda conforme tecleas no trabaja con easymotion
 set incsearch 
@@ -108,14 +108,10 @@ nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 set completeopt=menuone,preview,longest
 
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-inoremap <expr> <RIGHT> pumvisible() ? "<C-y>" : "<RIGHT>"
-inoremap <expr> <l> pumvisible() ? "<C-y>" : "<l>"
 inoremap <expr> <LEFT> pumvisible() ? "<C-e>" : "<LEFT>"
-inoremap <expr> <h> pumvisible() ? "<C-e>" : "<h>"
 inoremap <expr> <UP> pumvisible() ? "<C-p>": "<UP>"
-inoremap <expr> <k> pumvisible() ? "<C-p>": "<k>"
 inoremap <expr> <DOWN> pumvisible() ? "<C-n>": "<DOWN>"
-inoremap <expr> <j> pumvisible() ? "<C-n>": "<j>"
+
 
 scriptencoding utf-8
 autocmd FileType python set breakindentopt=shift:4
