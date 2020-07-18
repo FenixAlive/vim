@@ -1,7 +1,9 @@
 "https://github.com/FenixAlive/vim
+
 if &compatible
   set nocompatible
 endif
+
 "Plug-vim
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -101,6 +103,7 @@ augroup END:set number relativenumber
 "rustup component add rls rust-analysis rust-src
 "en vim agregar la extensión:
 ":CocInstall coc-rls
+":CocInstall coc-analyzer
 " Add status line support, for integration with other plugin, checkout `:h coc-status`
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
