@@ -103,7 +103,7 @@ augroup END:set number relativenumber
 "rustup component add rls rust-analysis rust-src
 "en vim agregar la extensión:
 ":CocInstall coc-rls
-":CocInstall coc-analyzer
+":CocInstall coc-rust-analyzer
 " Add status line support, for integration with other plugin, checkout `:h coc-status`
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
