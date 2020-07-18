@@ -1,22 +1,16 @@
-" Vim's default behavior
+"https://github.com/FenixAlive/vim
 if &compatible
   set nocompatible
 endif
-
-"Para instalar por primera vez plug-vim poner esto en powershell son dos
-"comandos
-"md ~\AppData\Local\nvim-data\site\autoload
-"$uri = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-"(New-Object Net.WebClient).DownloadFile(
-"$uri,
-"$ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath(
-""~\AppData\Local\nvim-data\site\autoload\plug.vim"
-")
-")
-
-call plug#begin('~/vimfiles/plugged')
+"Plug-vim
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+call plug#begin('~/.vim/plugged')
   Plug 'itchyny/lightline.vim'
-  Plug 'scrooloose/nerdcommenter'
+  Plug 'preservim/nerdcommenter'
   Plug 'mattn/emmet-vim'
   Plug 'tpope/vim-surround'
   Plug 'vifm/vifm.vim'
@@ -33,12 +27,12 @@ set pastetoggle=<F12>
 
 "historia al cerrar archivo
 set undofile
-set undodir=~/vimfiles/.undo//
-set directory=~/vimfiles/.swp//
+set undodir=~/.vim/.undo//
+set directory=~/.vim/.swp//
 
 "mouse
 set mouse=a
-set mousehide 
+set mousehide
 
 "busqueda
 set ignorecase "Hace insensible la busqueda"
@@ -65,10 +59,6 @@ set noshowmode
 
 "Color en vim
 colorscheme old-hope
-
-"fuente en gvim
-set guifont=Monofur_NF:h11:cANSI:qDRAFT
-set backspace=indent,eol,start
 
 "emmet-vim
 let g:user_emmet_leader_key='<C-a>'
@@ -208,43 +198,7 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+"guardar historia al cambiar de buffer
 
-"Cambios nuevos para Windows
-" Use the internal diff if available.
-" Otherwise use the special 'diffexpr' for Windows.
-if &diffopt !~# 'internal'
-  set diffexpr=MyDiff()
-endif
-function MyDiff()
-  let opt = '-a --binary '
-  if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
-  if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
-  let arg1 = v:fname_in
-  if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
-  let arg1 = substitute(arg1, '!', '\!', 'g')
-  let arg2 = v:fname_new
-  if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
-  let arg2 = substitute(arg2, '!', '\!', 'g')
-  let arg3 = v:fname_out
-  if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
-  let arg3 = substitute(arg3, '!', '\!', 'g')
-  if $VIMRUNTIME =~ ' '
-    if &sh =~ '\<cmd'
-      if empty(&shellxquote)
-        let l:shxq_sav = ''
-        set shellxquote&
-      endif
-      let cmd = '"' . $VIMRUNTIME . '\diff"'
-    else
-      let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
-    endif
-  else
-    let cmd = $VIMRUNTIME . '\diff'
-  endif
-  let cmd = substitute(cmd, '!', '\!', 'g')
-  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3
-  if exists('l:shxq_sav')
-    let &shellxquote=l:shxq_sav
-  endif
-endfunction
-
+"instrucciones:
+"Para moverse entre tabs gt o gT
