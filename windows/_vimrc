@@ -2,6 +2,7 @@
 if &compatible
   set nocompatible
 endif
+
 "Para instalar por primera vez plug-vim poner esto en powershell son dos
 "comandos
 "md ~\AppData\Local\nvim-data\site\autoload
@@ -28,6 +29,7 @@ scriptencoding utf-8
 "custom
 let mapleader =","
 inoremap jk <ESC>
+set pastetoggle=<F12>
 
 "historia al cerrar archivo
 set undofile
@@ -54,10 +56,10 @@ let g:lightline = {
 set noshowmode
 
 "Color en vim
-colorscheme artesanal
+colorscheme old-hope
 
 "fuente en gvim
-set guifont=DejaVuSansMono\ NF:h11:cANSI:qDRAFT
+set guifont=Anonymice_Nerd_Font_Mono:h11:cANSI:qDRAFT
 set backspace=indent,eol,start
 
 "emmet-vim
