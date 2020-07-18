@@ -95,7 +95,12 @@ augroup numbertoggle
 augroup END:set number relativenumber
 
 """"" coc config
-
+"una vez instalado nodejs, npm y coc en vim agregar los siguientes paquetes:
+"Rust:
+"en terminal agregar servidor:
+"rustup component add rls rust-analysis rust-src
+"en vim agregar la extensión:
+":CocInstall coc-rls
 " Add status line support, for integration with other plugin, checkout `:h coc-status`
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
@@ -198,7 +203,6 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
-"guardar historia al cambiar de buffer
 
 "instrucciones:
 "Para moverse entre tabs gt o gT
