@@ -59,7 +59,7 @@ set noshowmode
 colorscheme old-hope
 
 "fuente en gvim
-set guifont=Anonymice_Nerd_Font_Mono:h11:cANSI:qDRAFT
+set guifont=Monofur_NF:h11:cANSI:qDRAFT
 set backspace=indent,eol,start
 
 "emmet-vim
