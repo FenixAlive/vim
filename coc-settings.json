@@ -8,6 +8,11 @@
     "javascriptreact",
     "typescript.tsx",
     "graphql",
-    "rust"
+    "rust",
+    "html",
+    "css",
+    "c",
+    "cpp",
+    "py"
   ]
 }
