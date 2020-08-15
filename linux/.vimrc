@@ -36,7 +36,7 @@ inoremap <Right> <NOP>
 
 "custom
 let mapleader =","
-inoremap <leader><space> <ESC>
+inoremap <leader>n <ESC>
 set pastetoggle=<F12>
 
 "historia al cerrar archivo
@@ -72,7 +72,7 @@ let g:lightline = {
 set noshowmode
 
 "Color en vim
-colorscheme old-hope
+colorscheme artesanal
 
 "emmet-vim
 let g:user_emmet_leader_key='<C-a>'
